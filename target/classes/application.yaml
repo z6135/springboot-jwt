@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test2?useSSL=false
+    username: root
+    password: 123456
+    ##############################################
+    #
+    # thymeleaf静态资源配置
+    #
+    ##############################################
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+mybatis:
+  config-location: classpath:mybatis.xml
+debug: true
+server:
+  port: 8888
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR         # 日志不打印条件评估报告

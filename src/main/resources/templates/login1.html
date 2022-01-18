@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/js/jQuery3.6.0.js}">
+    <script>
+        var username = $("#username").val();//取值
+        var password = $("#password").val();
+        var param = {"username":username,"password":password};
+        $.post("/api/login",param,function(result){
+            if(result){
+                // window.location.href="login1.html";
+                console.log(result);
+            }else{
+                alert("用户名或者密码错误!");
+            }
+        });
+    </script>
+</head>
+<body>
+Thymeleaf模板引擎
+<h1 th:text="${name}">hello world~~~~~~~~~~${name}</h1>
+<form action="/api/login">
+    用户名：<input type="text" id="username" name="username">
+    密码：<input type="text" id="password" name="password">
+    <input type="submit" name="login" value="提交">
+</form>
+</body>
+</html>
